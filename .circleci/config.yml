@@ -7,12 +7,12 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:8-browsers-legacy
+      - image: circleci/openjdk:11-stretch
 
     working_directory: ~/repo
 
     environment:
-      # Customize the JVM maximum heap limit
+      # Customize the JVM maximum heap limits
       MAVEN_OPTS: -Xmx3200m
 
     steps:
@@ -35,4 +35,4 @@ jobs:
       # run tests!
       - run: mvn integration-test
 
-      - run: mvn sonar:sonar -Dsonar.projectKey=sfg-brewery-monolith -Dsonar.organization=sfg-beer-works -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c8ba5345c3cfa77e813c8b5415e6dc96f46b34e9
+      #- run: mvn sonar:sonar -Dsonar.projectKey=sfg-brewery-monolith -Dsonar.organization=sfg-beer-works -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c8ba5345c3cfa77e813c8b5415e6dc96f46b34e9
